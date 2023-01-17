@@ -12,3 +12,5 @@ product.save!
 product = Product.new(name: "Eraser", price: 5, img_url: "https://purepng.com/public/uploads/large/purepng.com-erasereraserstationeryremovingwritingrubberyshapescolourspencil-eraser-1421526504923jaacw.png", description: "Beautiful pink eraser to erase all your mistakes!")
 product.save!
 
+product = Product.new(name: "Pen", price: 10, img_url: "https://cdn.pixabay.com/photo/2013/07/13/09/51/pen-filler-156146__340.png", description: "Gold finish, fountain pen. Forged in london.")
+product.save!
