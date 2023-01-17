@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+product = Product.new(name: "Pencil", price: 3, img_url: "https://www.freeiconspng.com/thumbs/pencil-png/pencil-png-file-by-ama-chii-on-deviantart-14.png", description: "New #2 pencil that can write up to 20 pages!")
+product.save!
+
+product = Product.new(name: "Pencil", price: 3, img_url: "https://www.freeiconspng.com/thumbs/pencil-png/pencil-png-file-by-ama-chii-on-deviantart-14.png", description: "New #2 pencil that can write up to 20 pages!")
+product.save!
