@@ -9,5 +9,6 @@
 product = Product.new(name: "Pencil", price: 3, img_url: "https://www.freeiconspng.com/thumbs/pencil-png/pencil-png-file-by-ama-chii-on-deviantart-14.png", description: "New #2 pencil that can write up to 20 pages!")
 product.save!
 
-product = Product.new(name: "Pencil", price: 3, img_url: "https://www.freeiconspng.com/thumbs/pencil-png/pencil-png-file-by-ama-chii-on-deviantart-14.png", description: "New #2 pencil that can write up to 20 pages!")
+product = Product.new(name: "Eraser", price: 5, img_url: "https://purepng.com/public/uploads/large/purepng.com-erasereraserstationeryremovingwritingrubberyshapescolourspencil-eraser-1421526504923jaacw.png", description: "Beautiful pink eraser to erase all your mistakes!")
 product.save!
+
