@@ -11,4 +11,14 @@ class ProductsController < ApplicationController
 
     render :index
   end
+
+  def create
+    @product = Product.create(
+      name: params["name"],
+      price: params["price"],
+      image_url: params["iamge_url"],
+      description: params["description"],
+    )
+    render :show
+  end
 end

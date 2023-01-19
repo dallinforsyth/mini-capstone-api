@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   # action: "all_product_method"
 
   get "/products" => "products#index"
+
+  post "/products" => "products#create"
 end
