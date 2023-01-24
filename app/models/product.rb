@@ -2,10 +2,8 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :price, presence: true
-  validates :price, comparison: { greater_than: 0 }
-  validates :price, numericality: { only_integer: true }
+  validates :price, numericality: { greater_than: 0 }
   validates :description, length: { in: 10..500 }
-  validates_format_of :image, :with => %r{\.(png|jpg|jpeg)$}i, :message => "Use a real image"
 
   def is_discounted?
     if price <= 10
