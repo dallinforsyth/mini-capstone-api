@@ -16,10 +16,14 @@ class ProductsController < ApplicationController
     @product = Product.create(
       name: params["name"],
       price: params["price"],
-      image_url: params["iamge_url"],
       description: params["description"],
+      supplier_id: params["supplier_id"],
+
     )
     if @product.valid?
+      if params[:url]
+        Picture.create(url: params[:url], product_id: @product.id)
+      end
       render :show
     else
       render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
@@ -31,10 +35,12 @@ class ProductsController < ApplicationController
     @product.update(
       name: params["name"] || @product.name,
       price: params["price"] || @product.price,
-      image_url: params["iamge_url"] || @product.image_url,
       description: params["description"] || @product.description,
     )
     if @product.valid?
+      if params[:url]
+        Picture.create(url: params[:url], product_id: @product.id)
+      end
       render :show
     else
       render json: { errors: @product.errors.full_messages }, status: :unprocessable_entity
