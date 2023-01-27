@@ -20,5 +20,8 @@ Rails.application.routes.draw do
 
   delete "products/:id" => "products#destroy"
 
+  #sign up
   post "/users" => "users#create"
+  #login (create session)
+  post "/sessions" => "sessions#create"
 end
