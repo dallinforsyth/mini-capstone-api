@@ -8,20 +8,19 @@ Rails.application.routes.draw do
   # action: "first_product_method"
 
   get "/products/:id" => "products#show"
-
   # get "/all_product_path", controller: "products",
   # action: "all_product_method"
-
   get "/products" => "products#index"
-
   post "/products" => "products#create"
-
   patch "/products/:id" => "products#update"
-
   delete "products/:id" => "products#destroy"
 
   #sign up
   post "/users" => "users#create"
   #login (create session)
   post "/sessions" => "sessions#create"
+
+  post "/orders" => "orders#create"
+  get "/orders/:id" => "orders#show"
+  get "/orders" => "orders#index"
 end
