@@ -1,25 +1,45 @@
 class OrdersController < ApplicationController
   def create
-    @order = Order.create(
+    if current_user
+      product = Product.find_by(id: params[:product_id])
+      quantity = params[:quantity].to_i
+      subtotal = quantity * product.price
+      tax = quantity * product.tax
+      total = subtotal + tax
 
-      user_id: params["user_id"],
-      product_id: params["product_id"],
-      quantity: params["quantity"],
-      subtotal: params["subtotal"],
-      tax: params["tax"],
-      total: params["total"],
+      @order = Order.create(
 
-    )
-    render :show
+        quantity: quantity,
+        product_id: params[:product_id],
+        user_id: current_user.id,
+        subtotal: subtotal,
+        tax: tax,
+        total: total,
+
+      )
+      render :show
+    else
+      render json: {}, status: :unauthorized
+    end
   end
 
   def show
     @order = Order.find_by(id: params[:id])
-    render :show
+
+    if current_user && current_user.id == @order.user_id
+      :show
+    else
+      render json: {}, status: :unauthorized
+    end
   end
 
   def index
-    @orders = Order.all
-    render :index
+    if current_user
+      @orders = current_user.orders
+
+      :index
+    else
+      render json: {}, status: :unauthorized
+    end
   end
 end
